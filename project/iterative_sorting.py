@@ -27,28 +27,44 @@ print(my_arr)
 # TO-DO: implement the Insertion Sort function below
 def insertion_sort(arr):
     for i in range(1, len(arr)):
-        key = arr[i]
-        j = i - 1
-        while j >= 0 and key < arr[j]:
-            arr[j + 1] = arr[j]
-            j -= 1
-        arr[j + 1] = key
+        temp = arr[i]
+        position = i
+        while position > 0 and arr[position - 1] > temp:
+            arr[position] = arr[position - 1]
+            position = position - 1
+        arr[position] = temp
+
     return arr
 
 
-arr = [12, 11, 13, 5, 6]
-insertion_sort(arr)
-for i in range(len(arr)):
-    print("%d" % arr[i])
+arr = insertion_sort(my_arr)
+print(my_arr)
 
 
 # STRETCH: implement the Bubble Sort function below
 def bubble_sort(arr):
+    # loop through arr
+    # check whether i is > i +1
+    # if so, swap
+    # if we go through the loop and there was at least 1 swap, we loop again
+    # if there were no swaps, stop the loop
+    for i in range(len(arr) - 1, 0, -1):
+        for i in range(i):
+            if arr[i] > arr[i + 1]:
+                temp = arr[i]
+                arr[i] = arr[i + 1]
+                arr[i + 1] = temp
 
     return arr
 
 
+arr = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+bubble_sort(arr)
+print(arr)
+
 # STRETCH: implement the Count Sort function below
+
+
 def count_sort(arr, maximum=-1):
 
     return arr
