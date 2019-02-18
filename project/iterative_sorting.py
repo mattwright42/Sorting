@@ -66,5 +66,17 @@ print(arr)
 
 
 def count_sort(arr, maximum=-1):
-
+    n = len(arr)
+    m = maximum + 1
+    count = [0] * m
+    for a in arr:
+        count[a] += 1
+    i = 0
+    for a in range(m):
+        for c in range(count[a]):
+            arr[i] = a
+            i += 1
     return arr
+
+
+print(count_sort([1, 4, 7, 2, 1, 3, 2, 1, 4, 2, 3, 2, 1], 7))
